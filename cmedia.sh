@@ -15,4 +15,6 @@ if [ $1 == $nombre ];
 done
 
 resultado=$((total/media))
-echo "La media de $1 es $resultado"
+echo $resultado > media.txt
+
+
