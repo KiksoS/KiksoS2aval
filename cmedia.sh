@@ -1,5 +1,5 @@
 #!/bin/bash
-linea=`cat ./consumo.txt | wc -l`
+c
 
 total=0
 media=0
