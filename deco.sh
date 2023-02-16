@@ -2,8 +2,11 @@
 
 consumo=`cat consumo.txt | grep $1 | awk '{print $1}'`
 
-source ./cmedia.sh $1
+source ./cmedia.sh $1 > kk.txt
 
-arch=`cat media.txt | head n1 `
+if [ `cat kk.txt` -lt 400 ];then 
 
-echo $arch
+    echo "Es eco"
+else 
+    echo "No es eco"
+fi

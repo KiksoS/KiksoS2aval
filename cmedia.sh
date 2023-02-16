@@ -15,6 +15,6 @@ if [ $1 == $nombre ];
 done
 
 resultado=$((total/media))
-echo $resultado > media.txt
+echo $resultado
 
 
