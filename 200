@@ -1,0 +1,7 @@
+
+if [ $((media < 400)) ];then
+
+    echo "Es eco"
+else
+    echo "No es eco"
+fi
