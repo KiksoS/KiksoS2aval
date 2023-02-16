@@ -1,20 +1,27 @@
 #!/bin/bash
-read -p "De que ciudad quieres calcular el consumo " ciudad
-lineas=`cat ./consumo.txt | wc -l`
+consumo=`cat consumo.txt | grep $1 | awk '{print $1}'`
+linea=`cat ./consumo.txt | wc -l`
 
-total=0
-vueltas=0
-for i in `seq 2 $lineas`
+source ./cmedia.sh $1 > kk.txt
+
+
+for i in `seq 2 $linea`
 do
 nombre=`cat ./consumo.txt | head -n$i | tail -n1 | awk '{print $1}'`
-if [ $ciudad == $nombre ];
+if [ $1 == $nombre ];
     then
         consumo=`cat ./consumo.txt | head -n$i | tail -n1 | awk '{print $4}'`
         total=$((total+consumo))
-        vueltas=$((vueltas+1))
+        ((media++))
     fi
 done
 
-resultado=$((total/vueltas))
-echo "La media de $ciudad es $resultado"
-sleep 5
+
+
+
+if [ `cat kk.txt` -lt 400 ];then 
+
+    echo "Es eco"
+else 
+    echo "No es eco"
+fi
